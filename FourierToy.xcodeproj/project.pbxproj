@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C1C394D1EA5465C008188DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C394C1EA5465C008188DF /* AppDelegate.swift */; };
+		7C1C394F1EA5465C008188DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C394E1EA5465C008188DF /* ViewController.swift */; };
+		7C1C39521EA5465C008188DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C39501EA5465C008188DF /* Main.storyboard */; };
+		7C1C39541EA5465C008188DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C39531EA5465C008188DF /* Assets.xcassets */; };
+		7C1C39571EA5465C008188DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C39551EA5465C008188DF /* LaunchScreen.storyboard */; };
+		7C1C395F1EA546BB008188DF /* FourierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C395E1EA546BB008188DF /* FourierView.swift */; };
+		7C1C39611EA547B2008188DF /* DisplayLinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C39601EA547B2008188DF /* DisplayLinker.swift */; };
+		7C1C39631EA6A812008188DF /* CGContext+Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C39621EA6A812008188DF /* CGContext+Circle.swift */; };
+		7C9D272F1EAD24650037D70C /* FourierCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9D272E1EAD24650037D70C /* FourierCalculations.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7C1C39491EA5465C008188DF /* FourierToy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourierToy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C1C394C1EA5465C008188DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7C1C394E1EA5465C008188DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7C1C39511EA5465C008188DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7C1C39531EA5465C008188DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7C1C39561EA5465C008188DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7C1C39581EA5465C008188DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C1C395E1EA546BB008188DF /* FourierView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourierView.swift; sourceTree = "<group>"; };
+		7C1C39601EA547B2008188DF /* DisplayLinker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayLinker.swift; sourceTree = "<group>"; };
+		7C1C39621EA6A812008188DF /* CGContext+Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGContext+Circle.swift"; sourceTree = "<group>"; };
+		7C9D272E1EAD24650037D70C /* FourierCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourierCalculations.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C1C39461EA5465C008188DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C1C39401EA5465C008188DF = {
+			isa = PBXGroup;
+			children = (
+				7C1C394B1EA5465C008188DF /* FourierToy */,
+				7C1C394A1EA5465C008188DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7C1C394A1EA5465C008188DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C1C39491EA5465C008188DF /* FourierToy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7C1C394B1EA5465C008188DF /* FourierToy */ = {
+			isa = PBXGroup;
+			children = (
+				7C1C394C1EA5465C008188DF /* AppDelegate.swift */,
+				7C1C394E1EA5465C008188DF /* ViewController.swift */,
+				7C1C39501EA5465C008188DF /* Main.storyboard */,
+				7C1C39531EA5465C008188DF /* Assets.xcassets */,
+				7C1C39551EA5465C008188DF /* LaunchScreen.storyboard */,
+				7C1C39581EA5465C008188DF /* Info.plist */,
+				7C1C395E1EA546BB008188DF /* FourierView.swift */,
+				7C1C39601EA547B2008188DF /* DisplayLinker.swift */,
+				7C1C39621EA6A812008188DF /* CGContext+Circle.swift */,
+				7C9D272E1EAD24650037D70C /* FourierCalculations.swift */,
+			);
+			path = FourierToy;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7C1C39481EA5465C008188DF /* FourierToy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C1C395B1EA5465C008188DF /* Build configuration list for PBXNativeTarget "FourierToy" */;
+			buildPhases = (
+				7C1C39451EA5465C008188DF /* Sources */,
+				7C1C39461EA5465C008188DF /* Frameworks */,
+				7C1C39471EA5465C008188DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FourierToy;
+			productName = FourierToy;
+			productReference = 7C1C39491EA5465C008188DF /* FourierToy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7C1C39411EA5465C008188DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = eclight;
+				TargetAttributes = {
+					7C1C39481EA5465C008188DF = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 459GNPFQ87;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7C1C39441EA5465C008188DF /* Build configuration list for PBXProject "FourierToy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7C1C39401EA5465C008188DF;
+			productRefGroup = 7C1C394A1EA5465C008188DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7C1C39481EA5465C008188DF /* FourierToy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7C1C39471EA5465C008188DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C1C39571EA5465C008188DF /* LaunchScreen.storyboard in Resources */,
+				7C1C39541EA5465C008188DF /* Assets.xcassets in Resources */,
+				7C1C39521EA5465C008188DF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7C1C39451EA5465C008188DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C9D272F1EAD24650037D70C /* FourierCalculations.swift in Sources */,
+				7C1C394F1EA5465C008188DF /* ViewController.swift in Sources */,
+				7C1C39631EA6A812008188DF /* CGContext+Circle.swift in Sources */,
+				7C1C39611EA547B2008188DF /* DisplayLinker.swift in Sources */,
+				7C1C394D1EA5465C008188DF /* AppDelegate.swift in Sources */,
+				7C1C395F1EA546BB008188DF /* FourierView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7C1C39501EA5465C008188DF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C1C39511EA5465C008188DF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7C1C39551EA5465C008188DF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C1C39561EA5465C008188DF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7C1C39591EA5465C008188DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7C1C395A1EA5465C008188DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7C1C395C1EA5465C008188DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 459GNPFQ87;
+				INFOPLIST_FILE = FourierToy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eclight.FourierToy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7C1C395D1EA5465C008188DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 459GNPFQ87;
+				INFOPLIST_FILE = FourierToy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eclight.FourierToy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7C1C39441EA5465C008188DF /* Build configuration list for PBXProject "FourierToy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C1C39591EA5465C008188DF /* Debug */,
+				7C1C395A1EA5465C008188DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C1C395B1EA5465C008188DF /* Build configuration list for PBXNativeTarget "FourierToy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C1C395C1EA5465C008188DF /* Debug */,
+				7C1C395D1EA5465C008188DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7C1C39411EA5465C008188DF /* Project object */;
+}
