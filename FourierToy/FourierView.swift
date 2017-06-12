@@ -15,9 +15,6 @@ extension CGRect {
 }
 
 class FourierView : UIView {
-        
-    static let circleLineColor = UIColor.blue
-    static let circleMarkerColor = UIColor.red
     
     // MARK: - Public properties
     
@@ -33,6 +30,11 @@ class FourierView : UIView {
     var axesColor = UIColor(red: 0.9176, green: 0.9176, blue: 0.9176, alpha: 1.0)
     var circlesColor = UIColor(red: 0.8176, green: 0.8176, blue: 0.8176, alpha: 1.0)
     var primaryGraphLineWidth: CGFloat = 3
+    var coefficients: [Double] = [Double]() {
+        didSet {
+            recalculateSamples()
+        }
+    }
     
     // MARK: - Private properties
     
@@ -43,9 +45,9 @@ class FourierView : UIView {
     private var currentSampleIndex = 0
     private var samplingStep = 0.0
     private var graphFrame = CGRect.zero
-    private var coefficients = [Double]()
     private var samples = [Sample]()
     private var graphPath: CGPath!
+    private var trajectoryPath: CGPath!
     
 
     // MARK: - Constructors
@@ -77,6 +79,8 @@ class FourierView : UIView {
         guard let context = UIGraphicsGetCurrentContext() else {
             fatalError("UIGraphicsGetCurrentContext returned nil")
         }
+        
+        let markerCircleRadius: CGFloat = 2.0
         
         let xAxisScale = graphFrame.width / CGFloat(domain.upperBound - domain.lowerBound)
         let yAxisScale = graphFrame.height / CGFloat(range.upperBound - range.lowerBound)
@@ -134,7 +138,7 @@ class FourierView : UIView {
         
         let point = CGPoint(x: 0, y: currentSample.y.last!.partialSum)
         context.setFillColor(primaryGraphColor.cgColor)
-        context.fillCircle(at: point, radius: 3.0 / yAxisScale)
+        context.fillCircle(at: point, radius: 2 * markerCircleRadius / yAxisScale)
         
         // Circles
         
@@ -149,7 +153,7 @@ class FourierView : UIView {
             
             let currentPoint = CGPoint(x: currentSample.x[i].partialSum, y: currentSample.y[i].partialSum)
             context.setStrokeColor(UIColor.red.cgColor)
-            context.fillCircle(at: currentPoint, radius: 3.0 / yAxisScale)
+            context.fillCircle(at: currentPoint, radius: markerCircleRadius / yAxisScale)
             context.strokeLineSegments(between: [
                 currentCenter,
                 currentPoint
@@ -163,6 +167,9 @@ class FourierView : UIView {
             currentCenter,
             CGPoint(x: 0, y: currentCenter.y)
             ])
+        
+        context.addPath(trajectoryPath)
+        context.strokePath()
     }
     
     //MARK: - Private functions
@@ -196,24 +203,28 @@ class FourierView : UIView {
             currentArgument += samplingStep
         }
         
-        let path = CGMutablePath()
-        var firstPoint = true
+        // Update paths
         
-        for sample in samples {
+        let mutableGraphPath = CGMutablePath()
+        
+        let graphPoints = samples.map {
+            (sample) -> CGPoint in
             let x = sample.argument
             let y = sample.y.last!.partialSum
-            
-            let point = CGPoint(x: x, y: y)
-            
-            if firstPoint {
-                path.move(to: point)
-                firstPoint = false
-            } else {
-                path.addLine(to: point)
-            }
+            return CGPoint(x:x, y: y)
         }
+        mutableGraphPath.addLines(between: graphPoints)
+        graphPath = mutableGraphPath
         
-        graphPath = path
+        let mutableTrajectoryPath = CGMutablePath()
+        let trajectoryPoints = samples.map {
+            (sample) -> CGPoint in
+            let x = sample.x.last!.partialSum
+            let y = sample.y.last!.partialSum
+            return CGPoint(x:x, y: y)
+        }
+        mutableTrajectoryPath.addLines(between: trajectoryPoints)
+        trajectoryPath = mutableTrajectoryPath
     }
 }
 

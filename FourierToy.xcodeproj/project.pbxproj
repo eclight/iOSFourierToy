@@ -16,6 +16,7 @@
 		7C1C39611EA547B2008188DF /* DisplayLinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C39601EA547B2008188DF /* DisplayLinker.swift */; };
 		7C1C39631EA6A812008188DF /* CGContext+Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C39621EA6A812008188DF /* CGContext+Circle.swift */; };
 		7C9D272F1EAD24650037D70C /* FourierCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9D272E1EAD24650037D70C /* FourierCalculations.swift */; };
+		7CAB3B291EE423BA00D99420 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAB3B281EE423BA00D99420 /* OptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7C1C39601EA547B2008188DF /* DisplayLinker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayLinker.swift; sourceTree = "<group>"; };
 		7C1C39621EA6A812008188DF /* CGContext+Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGContext+Circle.swift"; sourceTree = "<group>"; };
 		7C9D272E1EAD24650037D70C /* FourierCalculations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourierCalculations.swift; sourceTree = "<group>"; };
+		7CAB3B281EE423BA00D99420 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				7C1C39601EA547B2008188DF /* DisplayLinker.swift */,
 				7C1C39621EA6A812008188DF /* CGContext+Circle.swift */,
 				7C9D272E1EAD24650037D70C /* FourierCalculations.swift */,
+				7CAB3B281EE423BA00D99420 /* OptionsViewController.swift */,
 			);
 			path = FourierToy;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				7C9D272F1EAD24650037D70C /* FourierCalculations.swift in Sources */,
 				7C1C394F1EA5465C008188DF /* ViewController.swift in Sources */,
 				7C1C39631EA6A812008188DF /* CGContext+Circle.swift in Sources */,
+				7CAB3B291EE423BA00D99420 /* OptionsViewController.swift in Sources */,
 				7C1C39611EA547B2008188DF /* DisplayLinker.swift in Sources */,
 				7C1C394D1EA5465C008188DF /* AppDelegate.swift in Sources */,
 				7C1C395F1EA546BB008188DF /* FourierView.swift in Sources */,

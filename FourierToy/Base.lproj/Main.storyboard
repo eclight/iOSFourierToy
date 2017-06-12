@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,26 +18,178 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="FourierView" customModule="FourierToy" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjW-zr-26E" customClass="FourierView" customModule="FourierToy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="568" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fx3-Ui-AJH">
+                                        <rect key="frame" x="494" y="20" width="54" height="30"/>
+                                        <state key="normal" title="Options"/>
+                                        <connections>
+                                            <action selector="toggleOptionsVisible" destination="BYZ-38-t0r" eventType="touchUpInside" id="f4Q-RS-oaQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tA1-OF-Vtu">
+                                        <rect key="frame" x="444" y="20" width="42" height="30"/>
+                                        <state key="normal" title="Pause"/>
+                                        <connections>
+                                            <action selector="togglePaused" destination="BYZ-38-t0r" eventType="touchUpInside" id="GWL-p2-uU1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="tA1-OF-Vtu" firstAttribute="baseline" secondItem="Fx3-Ui-AJH" secondAttribute="baseline" id="5Rd-nU-4PX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fx3-Ui-AJH" secondAttribute="trailing" constant="20" symbolic="YES" id="5bn-4L-Z5x"/>
+                                    <constraint firstItem="tA1-OF-Vtu" firstAttribute="top" secondItem="zjW-zr-26E" secondAttribute="top" constant="20" symbolic="YES" id="6pg-G7-QjD"/>
+                                    <constraint firstItem="Fx3-Ui-AJH" firstAttribute="leading" secondItem="tA1-OF-Vtu" secondAttribute="trailing" constant="8" symbolic="YES" id="r2N-ze-4Px"/>
+                                </constraints>
+                            </view>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUi-Uf-YH6">
+                                <rect key="frame" x="0.0" y="320" width="568" height="128"/>
+                                <connections>
+                                    <segue destination="Nbz-hD-Ixa" kind="embed" identifier="EmbedOptionsViewSegue" id="kba-xd-7fg"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="7m6-ta-0cp" appends="YES" id="22G-73-U5v"/>
-                        </connections>
+                        <constraints>
+                            <constraint firstItem="zjW-zr-26E" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="2AB-gB-4Zd"/>
+                            <constraint firstItem="ZUi-Uf-YH6" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="KrY-RK-fty"/>
+                            <constraint firstItem="ZUi-Uf-YH6" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="MVy-Xf-m7U"/>
+                            <constraint firstItem="zjW-zr-26E" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dIC-qD-DhW"/>
+                            <constraint firstItem="zjW-zr-26E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dMU-f1-4R7"/>
+                            <constraint firstItem="zjW-zr-26E" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="kHd-zc-PQh"/>
+                            <constraint firstItem="ZUi-Uf-YH6" firstAttribute="top" secondItem="wfy-db-euE" secondAttribute="top" id="pCF-zI-4A3"/>
+                            <constraint firstItem="ZUi-Uf-YH6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="qIm-lt-RaY"/>
+                            <constraint firstItem="ZUi-Uf-YH6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xxA-y1-e9g"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MVy-Xf-m7U"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="fourierView" destination="8bC-Xf-vdC" id="hZN-U8-xIP"/>
+                        <outlet property="fourierView" destination="zjW-zr-26E" id="feU-lr-kFi"/>
+                        <outlet property="optionsView" destination="ZUi-Uf-YH6" id="jeG-GL-423"/>
+                        <outlet property="optionsViewHiddenConstraint" destination="pCF-zI-4A3" id="a0l-Sc-bqa"/>
+                        <outlet property="optionsViewVisibleConstraint" destination="MVy-Xf-m7U" id="Ebh-IQ-NNx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="7m6-ta-0cp">
-                    <connections>
-                        <action selector="tapped" destination="BYZ-38-t0r" id="eH1-s7-o3j"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+        <!--Options View Controller-->
+        <scene sceneID="wyN-pk-K1M">
+            <objects>
+                <viewController id="Nbz-hD-Ixa" customClass="OptionsViewController" customModule="FourierToy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kpC-eD-2jh"/>
+                        <viewControllerLayoutGuide type="bottom" id="6bq-RV-dY3"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" id="qiI-fk-jb3">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lpC-KN-uNx">
+                                <rect key="frame" x="20" y="8" width="528" height="112"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wgf-fc-xpp">
+                                        <rect key="frame" x="0.0" y="0.0" width="528" height="30.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxn-37-FC2">
+                                                <rect key="frame" x="0.0" y="0.5" width="259" height="30"/>
+                                                <state key="normal" title="Square"/>
+                                                <connections>
+                                                    <action selector="squareButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="rSv-tK-AWL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AC-lD-8ns">
+                                                <rect key="frame" x="269" y="0.5" width="259" height="30"/>
+                                                <state key="normal" title="Triangle"/>
+                                                <connections>
+                                                    <action selector="triangleButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="EfJ-Mn-Vcd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-5T-Uu3">
+                                        <rect key="frame" x="0.0" y="40.5" width="528" height="31"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pUo-Nf-qed">
+                                                <rect key="frame" x="-2" y="0.0" width="166.5" height="32"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="8Qi-K0-fT3"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="b18-iW-e93">
+                                                <rect key="frame" x="180.5" y="0.0" width="167" height="32"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="4Ls-ak-RIc"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LHj-wb-df0">
+                                                <rect key="frame" x="363.5" y="0.0" width="166.5" height="32"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="5Ge-Sd-wca"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zgC-pp-DJd">
+                                        <rect key="frame" x="0.0" y="81.5" width="528" height="30.5"/>
+                                        <subviews>
+                                            <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mDY-nW-4Cf">
+                                                <rect key="frame" x="-2" y="0.0" width="166.5" height="31.5"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="COk-k8-mJM"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nkr-bA-Cba">
+                                                <rect key="frame" x="180.5" y="0.0" width="167" height="31.5"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="f6H-0w-WGf"/>
+                                                </connections>
+                                            </slider>
+                                            <slider opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-Du-qQI">
+                                                <rect key="frame" x="363.5" y="0.0" width="166.5" height="31.5"/>
+                                                <connections>
+                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="ddC-M3-O6U"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.95068359375" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.10456035224610749" green="0.75740447863037119" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6bq-RV-dY3" firstAttribute="top" secondItem="lpC-KN-uNx" secondAttribute="bottom" constant="8" symbolic="YES" id="5Hb-ah-A9p"/>
+                            <constraint firstItem="lpC-KN-uNx" firstAttribute="top" secondItem="kpC-eD-2jh" secondAttribute="bottom" constant="8" symbolic="YES" id="Gkh-21-qei"/>
+                            <constraint firstItem="lpC-KN-uNx" firstAttribute="leading" secondItem="qiI-fk-jb3" secondAttribute="leading" constant="20" symbolic="YES" id="jix-bn-eUA"/>
+                            <constraint firstAttribute="trailing" secondItem="lpC-KN-uNx" secondAttribute="trailing" constant="20" symbolic="YES" id="w2K-m6-Eg6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outletCollection property="sliders" destination="pUo-Nf-qed" collectionClass="NSMutableArray" id="N2c-FL-MFG"/>
+                        <outletCollection property="sliders" destination="b18-iW-e93" collectionClass="NSMutableArray" id="V0h-et-1Vb"/>
+                        <outletCollection property="sliders" destination="LHj-wb-df0" collectionClass="NSMutableArray" id="ldg-Tb-dSb"/>
+                        <outletCollection property="sliders" destination="mDY-nW-4Cf" collectionClass="NSMutableArray" id="XQe-5p-4ad"/>
+                        <outletCollection property="sliders" destination="Nkr-bA-Cba" collectionClass="NSMutableArray" id="RTe-xe-CyL"/>
+                        <outletCollection property="sliders" destination="efQ-Du-qQI" collectionClass="NSMutableArray" id="QWB-He-cLt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5IP-O7-pkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="987.25637181409309" y="-79.200000000000003"/>
         </scene>
     </scenes>
 </document>

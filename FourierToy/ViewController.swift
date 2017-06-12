@@ -8,20 +8,54 @@
 
 import UIKit
 
+extension FourierView : OptionsViewControllerDelegate {}
+
 class ViewController: UIViewController {
     
-    @IBOutlet weak var fourierView: FourierView!
+    // MARK: - IB outlets
     
-    //MARK: - Construction/destruction
+    @IBOutlet weak var fourierView: FourierView!
+    @IBOutlet weak var optionsViewHiddenConstraint: NSLayoutConstraint!
+    @IBOutlet weak var optionsViewVisibleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var optionsView: UIView!
+    
+    // MARK: - Construction/destruction
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - IB actions
-    
-    @IBAction func tapped() {
+        
+    @IBAction func togglePaused() {
         fourierView.isPaused = !fourierView.isPaused
+    }
+    
+    @IBAction func toggleOptionsVisible() {
+        let shouldHideOptions = !optionsView.isHidden
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            if !shouldHideOptions {
+                self.optionsView.isHidden = false
+            }
+            
+            if shouldHideOptions {
+                self.optionsViewVisibleConstraint.isActive = false
+                self.optionsViewHiddenConstraint.isActive = true
+            }
+            else {
+                self.optionsViewHiddenConstraint.isActive = false
+                self.optionsViewVisibleConstraint.isActive = true
+            }
+            
+            self.view.layoutIfNeeded()
+        },
+                       
+        completion: { finished in
+            if shouldHideOptions {
+                self.optionsView.isHidden = true
+            }
+        })
     }
     
     // MARK: - Controller lifecycle
@@ -35,6 +69,9 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(enterForeground),
                                                name: .UIApplicationDidBecomeActive,
                                                object: nil)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        fourierView.addGestureRecognizer(recognizer)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,7 +84,24 @@ class ViewController: UIViewController {
         fourierView.isPaused = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        if identifier == "EmbedOptionsViewSegue" {
+            (segue.destination as? OptionsViewController)?.delegate = fourierView
+        }
+    }
+    
     //MARK: - Private functions
+    
+    @objc
+    private func tapped() {
+        if !optionsView.isHidden {
+            toggleOptionsVisible()
+        }
+    }
     
     @objc
     private func enterBackground() {
