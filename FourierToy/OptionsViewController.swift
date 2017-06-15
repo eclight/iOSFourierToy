@@ -36,23 +36,23 @@ class OptionsViewController: UIViewController {
         coefficients = [Double](repeating: 0, count: numberOfCoefficients)
         super.init(coder: aDecoder)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         updateSliders(coefficients: coefficients)
     }
     
-    @IBAction func triangleButtonTouched() {
-        setPredefinedCoefficients(c: .triangle)
+    @IBAction func zeroButtonTouched() {
+        setPredefinedCoefficients(.zero)
     }
     
     @IBAction func squareButtonTouched() {
-        setPredefinedCoefficients(c: .square)
+        setPredefinedCoefficients(.square)
+    }
+    
+    @IBAction func triangleButtonTouched() {
+        setPredefinedCoefficients(.triangle)
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
@@ -60,8 +60,8 @@ class OptionsViewController: UIViewController {
         delegate?.coefficients = coefficients
     }
     
-    private func setPredefinedCoefficients(c: PredefinedCoefficients) {
-        coefficients = c.calculate(numberOfCoefficients)
+    private func setPredefinedCoefficients(_ newCoefficients: PredefinedCoefficients) {
+        coefficients = newCoefficients.calculate(numberOfCoefficients)
         delegate?.coefficients = coefficients
         updateSliders(coefficients: coefficients)
     }

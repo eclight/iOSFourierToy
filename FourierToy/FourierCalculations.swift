@@ -9,11 +9,14 @@
 import Foundation
 
 enum PredefinedCoefficients {
+    case zero
     case square
     case triangle
     
     func calculate(_ n: Int) -> [Double] {
         switch (self) {
+        case .zero: return [Double](repeating: 0, count: n)
+            
         case .square: return (1...n).map { (($0 % 2 == 0) ? 0 : 1) / Double($0) }
           
         case .triangle: return (1...n).map {

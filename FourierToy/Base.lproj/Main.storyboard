@@ -98,72 +98,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lpC-KN-uNx">
-                                <rect key="frame" x="20" y="8" width="528" height="112"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pHK-HF-FGg">
+                                <rect key="frame" x="20" y="0.0" width="528" height="128"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wgf-fc-xpp">
-                                        <rect key="frame" x="0.0" y="0.0" width="528" height="30.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lpC-KN-uNx">
+                                        <rect key="frame" x="0.0" y="29" width="473.5" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxn-37-FC2">
-                                                <rect key="frame" x="0.0" y="0.5" width="259" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-5T-Uu3">
+                                                <rect key="frame" x="0.0" y="0.0" width="473.5" height="30"/>
+                                                <subviews>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pUo-Nf-qed">
+                                                        <rect key="frame" x="-2" y="0.0" width="148.5" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="8Qi-K0-fT3"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="b18-iW-e93">
+                                                        <rect key="frame" x="162.5" y="0.0" width="148.5" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="4Ls-ak-RIc"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LHj-wb-df0">
+                                                        <rect key="frame" x="327" y="0.0" width="148.5" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="5Ge-Sd-wca"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zgC-pp-DJd">
+                                                <rect key="frame" x="0.0" y="40" width="473.5" height="30"/>
+                                                <subviews>
+                                                    <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mDY-nW-4Cf">
+                                                        <rect key="frame" x="-2" y="0.0" width="148.5" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="COk-k8-mJM"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <slider opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nkr-bA-Cba">
+                                                        <rect key="frame" x="162.5" y="0.0" width="148.5" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="f6H-0w-WGf"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <slider opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-Du-qQI">
+                                                        <rect key="frame" x="327" y="0.0" width="148.5" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="ddC-M3-O6U"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="260" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MIj-rz-4lS">
+                                        <rect key="frame" x="493.5" y="19" width="34.5" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2e-zQ-0D5">
+                                                <rect key="frame" x="1.5" y="0.0" width="32" height="30"/>
+                                                <state key="normal" title="Zero"/>
+                                                <connections>
+                                                    <action selector="zeroButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="2yZ-HC-uWj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEa-pm-bwj">
+                                                <rect key="frame" x="0.0" y="30" width="34.5" height="30"/>
                                                 <state key="normal" title="Square"/>
                                                 <connections>
-                                                    <action selector="squareButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="rSv-tK-AWL"/>
+                                                    <action selector="squareButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="9ht-Xn-Swf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AC-lD-8ns">
-                                                <rect key="frame" x="269" y="0.5" width="259" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58c-qJ-Y5z">
+                                                <rect key="frame" x="0.0" y="60" width="34.5" height="30"/>
                                                 <state key="normal" title="Triangle"/>
                                                 <connections>
-                                                    <action selector="triangleButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="EfJ-Mn-Vcd"/>
+                                                    <action selector="triangleButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="fug-K6-sMM"/>
                                                 </connections>
                                             </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CWk-5T-Uu3">
-                                        <rect key="frame" x="0.0" y="40.5" width="528" height="31"/>
-                                        <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pUo-Nf-qed">
-                                                <rect key="frame" x="-2" y="0.0" width="166.5" height="32"/>
-                                                <connections>
-                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="8Qi-K0-fT3"/>
-                                                </connections>
-                                            </slider>
-                                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="b18-iW-e93">
-                                                <rect key="frame" x="180.5" y="0.0" width="167" height="32"/>
-                                                <connections>
-                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="4Ls-ak-RIc"/>
-                                                </connections>
-                                            </slider>
-                                            <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LHj-wb-df0">
-                                                <rect key="frame" x="363.5" y="0.0" width="166.5" height="32"/>
-                                                <connections>
-                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="5Ge-Sd-wca"/>
-                                                </connections>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zgC-pp-DJd">
-                                        <rect key="frame" x="0.0" y="81.5" width="528" height="30.5"/>
-                                        <subviews>
-                                            <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mDY-nW-4Cf">
-                                                <rect key="frame" x="-2" y="0.0" width="166.5" height="31.5"/>
-                                                <connections>
-                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="COk-k8-mJM"/>
-                                                </connections>
-                                            </slider>
-                                            <slider opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nkr-bA-Cba">
-                                                <rect key="frame" x="180.5" y="0.0" width="167" height="31.5"/>
-                                                <connections>
-                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="f6H-0w-WGf"/>
-                                                </connections>
-                                            </slider>
-                                            <slider opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-Du-qQI">
-                                                <rect key="frame" x="363.5" y="0.0" width="166.5" height="31.5"/>
-                                                <connections>
-                                                    <action selector="sliderValueChanged:" destination="Nbz-hD-Ixa" eventType="valueChanged" id="ddC-M3-O6U"/>
-                                                </connections>
-                                            </slider>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -172,19 +184,19 @@
                         <color key="backgroundColor" white="0.95068359375" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.10456035224610749" green="0.75740447863037119" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6bq-RV-dY3" firstAttribute="top" secondItem="lpC-KN-uNx" secondAttribute="bottom" constant="8" symbolic="YES" id="5Hb-ah-A9p"/>
-                            <constraint firstItem="lpC-KN-uNx" firstAttribute="top" secondItem="kpC-eD-2jh" secondAttribute="bottom" constant="8" symbolic="YES" id="Gkh-21-qei"/>
-                            <constraint firstItem="lpC-KN-uNx" firstAttribute="leading" secondItem="qiI-fk-jb3" secondAttribute="leading" constant="20" symbolic="YES" id="jix-bn-eUA"/>
-                            <constraint firstAttribute="trailing" secondItem="lpC-KN-uNx" secondAttribute="trailing" constant="20" symbolic="YES" id="w2K-m6-Eg6"/>
+                            <constraint firstItem="pHK-HF-FGg" firstAttribute="top" secondItem="kpC-eD-2jh" secondAttribute="bottom" id="8cA-mG-9dv"/>
+                            <constraint firstAttribute="trailing" secondItem="pHK-HF-FGg" secondAttribute="trailing" constant="20" symbolic="YES" id="X9h-zJ-c7Z"/>
+                            <constraint firstItem="6bq-RV-dY3" firstAttribute="top" secondItem="pHK-HF-FGg" secondAttribute="bottom" id="Z6r-tB-udj"/>
+                            <constraint firstItem="pHK-HF-FGg" firstAttribute="leading" secondItem="qiI-fk-jb3" secondAttribute="leading" constant="20" symbolic="YES" id="wyr-xz-YVs"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outletCollection property="sliders" destination="pUo-Nf-qed" collectionClass="NSMutableArray" id="N2c-FL-MFG"/>
-                        <outletCollection property="sliders" destination="b18-iW-e93" collectionClass="NSMutableArray" id="V0h-et-1Vb"/>
-                        <outletCollection property="sliders" destination="LHj-wb-df0" collectionClass="NSMutableArray" id="ldg-Tb-dSb"/>
-                        <outletCollection property="sliders" destination="mDY-nW-4Cf" collectionClass="NSMutableArray" id="XQe-5p-4ad"/>
                         <outletCollection property="sliders" destination="Nkr-bA-Cba" collectionClass="NSMutableArray" id="RTe-xe-CyL"/>
                         <outletCollection property="sliders" destination="efQ-Du-qQI" collectionClass="NSMutableArray" id="QWB-He-cLt"/>
+                        <outletCollection property="sliders" destination="LHj-wb-df0" collectionClass="NSMutableArray" id="ldg-Tb-dSb"/>
+                        <outletCollection property="sliders" destination="b18-iW-e93" collectionClass="NSMutableArray" id="V0h-et-1Vb"/>
+                        <outletCollection property="sliders" destination="pUo-Nf-qed" collectionClass="NSMutableArray" id="N2c-FL-MFG"/>
+                        <outletCollection property="sliders" destination="mDY-nW-4Cf" collectionClass="NSMutableArray" id="XQe-5p-4ad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IP-O7-pkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
