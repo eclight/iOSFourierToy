@@ -21,11 +21,28 @@ class OptionsViewController: UIViewController {
             }
         }
     }
+
+    private let coefficientDescriptions = ["C₁", "C₂", "C₃", "C₄", "C₅", "C₆"]
     
-    private var coefficients: [Double]
+    private let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 1
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
+    private var coefficients: [Double] {
+        didSet {
+            delegate?.coefficients = coefficients
+        }
+    }
+    
     private let numberOfCoefficients = 6
     
     @IBOutlet var sliders: [UISlider]!
+    
+    @IBOutlet var coefficientLabels: [UILabel]!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         coefficients = [Double](repeating: 0, count: numberOfCoefficients)
@@ -36,11 +53,19 @@ class OptionsViewController: UIViewController {
         coefficients = [Double](repeating: 0, count: numberOfCoefficients)
         super.init(coder: aDecoder)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        sliders.sort(by: { $0.tag < $1.tag })
+        coefficientLabels.sort(by: {$0.tag < $1.tag })
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        updateSliders(coefficients: coefficients)
+        updateSliders()
+        updateLabels()
     }
     
     @IBAction func zeroButtonTouched() {
@@ -57,20 +82,35 @@ class OptionsViewController: UIViewController {
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         coefficients[sender.tag] = Double(sender.value)
-        delegate?.coefficients = coefficients
+        updateLabels()
     }
     
-    private func setPredefinedCoefficients(_ newCoefficients: PredefinedCoefficients) {
+    private func setPredefinedCoefficients(_ newCoefficients: PredefinedCoefficients){
         coefficients = newCoefficients.calculate(numberOfCoefficients)
-        delegate?.coefficients = coefficients
-        updateSliders(coefficients: coefficients)
+        updateSliders()
+        updateLabels()
     }
     
-    private func updateSliders(coefficients: [Double]) {
+    private func updateSliders() {
+        guard self.isViewLoaded else {
+            return
+        }
+        
         UIView.animate(withDuration: 0.1, animations: {
-            for (i, c) in coefficients.enumerated() {
+            for (i, c) in self.coefficients.enumerated() {
                 self.sliders[i].setValue(Float(c), animated: true)
             }
         })
+    }
+    
+    private func updateLabels() {
+        guard self.isViewLoaded else {
+            return
+        }
+        
+        for i in 0..<numberOfCoefficients {
+            let s = formatter.string(for: coefficients[i])!
+            coefficientLabels[i].text = "\(coefficientDescriptions[i]) = \(s)"
+        }
     }
 }

@@ -26,37 +26,15 @@ class ViewController: UIViewController {
     }
     
     // MARK: - IB actions
-        
-    @IBAction func togglePaused() {
-        fourierView.isPaused = !fourierView.isPaused
+    
+    @IBAction func showOptions() {
+        setOptionVisibility(true)
     }
     
-    @IBAction func toggleOptionsVisible() {
-        let shouldHideOptions = !optionsView.isHidden
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            if !shouldHideOptions {
-                self.optionsView.isHidden = false
-            }
-            
-            if shouldHideOptions {
-                self.optionsViewVisibleConstraint.isActive = false
-                self.optionsViewHiddenConstraint.isActive = true
-            }
-            else {
-                self.optionsViewHiddenConstraint.isActive = false
-                self.optionsViewVisibleConstraint.isActive = true
-            }
-            
-            self.view.layoutIfNeeded()
-        },
-                       
-        completion: { finished in
-            if shouldHideOptions {
-                self.optionsView.isHidden = true
-            }
-        })
+    @IBAction func hideOptions() {
+        setOptionVisibility(false)
     }
+    
     
     // MARK: - Controller lifecycle
     
@@ -70,8 +48,6 @@ class ViewController: UIViewController {
                                                name: .UIApplicationDidBecomeActive,
                                                object: nil)
         
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        fourierView.addGestureRecognizer(recognizer)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,13 +72,7 @@ class ViewController: UIViewController {
     
     //MARK: - Private functions
     
-    @objc
-    private func tapped() {
-        if !optionsView.isHidden {
-            toggleOptionsVisible()
-        }
-    }
-    
+
     @objc
     private func enterBackground() {
         fourierView.isPaused = true
@@ -111,6 +81,36 @@ class ViewController: UIViewController {
     @objc
     private func enterForeground() {
         fourierView.isPaused = false
+    }
+    
+    private func setOptionVisibility(_ isVisible: Bool) {
+        guard isVisible == optionsView.isHidden else {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3,
+            animations: {
+                if isVisible {
+                    self.optionsView.isHidden = false
+                }
+                
+                if !isVisible {
+                    self.optionsViewVisibleConstraint.isActive = false
+                    self.optionsViewHiddenConstraint.isActive = true
+                }
+                else {
+                    self.optionsViewHiddenConstraint.isActive = false
+                    self.optionsViewVisibleConstraint.isActive = true
+                }
+                
+                self.view.layoutIfNeeded()
+            },
+                       
+           completion: { finished in
+                if !isVisible {
+                    self.optionsView.isHidden = true
+                }
+            })
     }
 }
 
