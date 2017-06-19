@@ -80,6 +80,10 @@ class OptionsViewController: UIViewController {
         setPredefinedCoefficients(.triangle)
     }
     
+    @IBAction func sawtoothButtonTouched() {
+        setPredefinedCoefficients(.sawtooth)
+    }
+    
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         coefficients[sender.tag] = Double(sender.value)
         updateLabels()

@@ -12,6 +12,7 @@ enum PredefinedCoefficients {
     case zero
     case square
     case triangle
+    case sawtooth
     
     func calculate(_ n: Int) -> [Double] {
         switch (self) {
@@ -26,6 +27,10 @@ enum PredefinedCoefficients {
             
             return 0;
             }
+            
+            
+        case .sawtooth: return (1...n).map { 0.5 / Double($0) }
+    
         }
     }
 }

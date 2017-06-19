@@ -208,7 +208,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ecc-Aw-KeK" userLabel="Buttons">
-                                <rect key="frame" x="199.5" y="140" width="169" height="43"/>
+                                <rect key="frame" x="168" y="140" width="232" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boV-za-VuW" userLabel="Zero Button">
                                         <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
@@ -229,6 +229,13 @@
                                         <state key="normal" image="triangle"/>
                                         <connections>
                                             <action selector="triangleButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="dPM-Mn-Dbr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUL-V2-Kqh" userLabel="Triangle Button">
+                                        <rect key="frame" x="189" y="0.0" width="43" height="43"/>
+                                        <state key="normal" image="sawtooth"/>
+                                        <connections>
+                                            <action selector="sawtoothButtonTouched" destination="Nbz-hD-Ixa" eventType="touchUpInside" id="Jat-kc-IKg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -265,6 +272,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="sawtooth" width="43" height="43"/>
         <image name="square" width="43" height="43"/>
         <image name="triangle" width="43" height="43"/>
         <image name="zero" width="43" height="43"/>
