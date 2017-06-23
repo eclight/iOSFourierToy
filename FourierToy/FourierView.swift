@@ -25,10 +25,11 @@ class FourierView : UIView {
         get { return displayLinker.isPaused; }
     }
     
-    var primaryGraphColor = UIColor(red: 0.1725, green: 0.7059, blue: 0.8667, alpha: 1.0)
-    var secondaryGraphColor = UIColor(red: 0.1725, green: 0.7059, blue: 0.8667, alpha: 1.0)
-    var axesColor = UIColor(red: 0.9176, green: 0.9176, blue: 0.9176, alpha: 1.0)
-    var circlesColor = UIColor(red: 0.8176, green: 0.8176, blue: 0.8176, alpha: 1.0)
+    var primaryGraphColor = Colors.primary
+    var secondaryGraphColor = Colors.secondary
+    var axesColor = Colors.axes
+    var circlesColor = Colors.circles
+    var vectorsColor = Colors.vectors
     var primaryGraphLineWidth: CGFloat = 3
     var coefficients: [Double] = [Double]() {
         didSet {
@@ -145,14 +146,14 @@ class FourierView : UIView {
         context.setLineWidth(1.0 / yAxisScale)
         var currentCenter = CGPoint.zero
         
-        context.setFillColor(UIColor.red.cgColor)
+        context.setFillColor(vectorsColor.cgColor)
         
         for i in 0..<coefficients.count {
             context.setStrokeColor(circlesColor.cgColor)
             context.strokeCircle(at: currentCenter, radius: CGFloat(coefficients[i]))
             
             let currentPoint = CGPoint(x: currentSample.x[i].partialSum, y: currentSample.y[i].partialSum)
-            context.setStrokeColor(UIColor.red.cgColor)
+            context.setStrokeColor(vectorsColor.cgColor)
             context.fillCircle(at: currentPoint, radius: markerCircleRadius / yAxisScale)
             context.strokeLineSegments(between: [
                 currentCenter,

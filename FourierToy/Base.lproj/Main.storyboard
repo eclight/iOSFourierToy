@@ -236,7 +236,6 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.95068359375" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.10456035224610749" green="0.75740447863037119" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lpC-KN-uNx" firstAttribute="leading" secondItem="qiI-fk-jb3" secondAttribute="leading" constant="20" symbolic="YES" id="673-FP-kG2"/>
                             <constraint firstItem="ecc-Aw-KeK" firstAttribute="top" secondItem="lpC-KN-uNx" secondAttribute="bottom" constant="10" id="VkX-Yh-4BX"/>
