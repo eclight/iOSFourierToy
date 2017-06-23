@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,8 +27,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="P4R-Kg-LZO" appends="YES" id="3iL-O9-kk7"/>
-                                    <outletCollection property="gestureRecognizers" destination="cbJ-Gd-sM2" appends="YES" id="ppB-fs-gTw"/>
+                                    <outletCollection property="gestureRecognizers" destination="4hc-vR-vz7" appends="YES" id="wfd-MM-434"/>
                                 </connections>
                             </view>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUi-Uf-YH6">
@@ -65,16 +64,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="down" id="P4R-Kg-LZO" userLabel="Swipe Down Gesture Recognizer">
+                <tapGestureRecognizer id="4hc-vR-vz7">
                     <connections>
-                        <action selector="hideOptions" destination="BYZ-38-t0r" id="7df-WB-hhG"/>
+                        <action selector="toggleOptionPanel" destination="BYZ-38-t0r" id="WZe-Kq-0aK"/>
                     </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="up" id="cbJ-Gd-sM2" userLabel="Swipe Up Gesture Recognizer">
-                    <connections>
-                        <action selector="showOptions" destination="BYZ-38-t0r" id="rw9-9V-aNi"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>

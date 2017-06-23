@@ -27,12 +27,8 @@ class ViewController: UIViewController {
     
     // MARK: - IB actions
     
-    @IBAction func showOptions() {
-        setOptionVisibility(true)
-    }
-    
-    @IBAction func hideOptions() {
-        setOptionVisibility(false)
+    @IBAction func toggleOptionPanel() {
+        setOptionsVisibility(optionsView.isHidden)
     }
     
     
@@ -83,7 +79,7 @@ class ViewController: UIViewController {
         fourierView.isPaused = false
     }
     
-    private func setOptionVisibility(_ isVisible: Bool) {
+    private func setOptionsVisibility(_ isVisible: Bool) {
         guard isVisible == optionsView.isHidden else {
             return
         }
