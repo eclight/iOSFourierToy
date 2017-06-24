@@ -28,7 +28,29 @@ class ViewController: UIViewController {
     // MARK: - IB actions
     
     @IBAction func toggleOptionPanel() {
-        setOptionsVisibility(optionsView.isHidden)
+        let needToShow = optionsView.isHidden
+        if needToShow {
+            optionsView.isHidden = false
+        }
+        
+        if !needToShow {
+            optionsViewVisibleConstraint.isActive = false
+            optionsViewHiddenConstraint.isActive = true
+        }
+        else {
+            optionsViewHiddenConstraint.isActive = false
+            optionsViewVisibleConstraint.isActive = true
+        }
+        
+        UIView.animate(
+            withDuration: 0.3,
+            animations: { self.view.layoutIfNeeded() },
+            completion: { _ in
+                if !needToShow {
+                    self.optionsView.isHidden = true
+                }
+            }
+        )
     }
     
     
@@ -68,7 +90,6 @@ class ViewController: UIViewController {
     
     //MARK: - Private functions
     
-
     @objc
     private func enterBackground() {
         fourierView.isPaused = true
@@ -77,36 +98,6 @@ class ViewController: UIViewController {
     @objc
     private func enterForeground() {
         fourierView.isPaused = false
-    }
-    
-    private func setOptionsVisibility(_ isVisible: Bool) {
-        guard isVisible == optionsView.isHidden else {
-            return
-        }
-        
-        UIView.animate(withDuration: 0.3,
-            animations: {
-                if isVisible {
-                    self.optionsView.isHidden = false
-                }
-                
-                if !isVisible {
-                    self.optionsViewVisibleConstraint.isActive = false
-                    self.optionsViewHiddenConstraint.isActive = true
-                }
-                else {
-                    self.optionsViewHiddenConstraint.isActive = false
-                    self.optionsViewVisibleConstraint.isActive = true
-                }
-                
-                self.view.layoutIfNeeded()
-            },
-                       
-           completion: { finished in
-                if !isVisible {
-                    self.optionsView.isHidden = true
-                }
-            })
     }
 }
 
