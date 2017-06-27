@@ -18,8 +18,6 @@ class FourierView : UIView {
     
     // MARK: - Public properties
     
-    var unitsPerFrame: Double = 0.005
-    
     var isPaused: Bool {
         set { displayLinker.isPaused = newValue; }
         get { return displayLinker.isPaused; }
@@ -40,11 +38,12 @@ class FourierView : UIView {
     // MARK: - Private properties
     
     private var displayLinker: DisplayLinker!
-    private let period = 1.0
+    private static let period = 1.0
+    private static let numberOfSamplesForPeriod = 260
+    private static let samplingStep = period / Double(numberOfSamplesForPeriod - 1)
     private let domain = 0.0...1.5
     private let range = -1.5...1.5
     private var currentSampleIndex = 0
-    private var samplingStep = 0.0
     private var graphFrame = CGRect.zero
     private var samples = [Sample]()
     private var graphPath: CGPath!
@@ -114,12 +113,12 @@ class FourierView : UIView {
         context.translateBy(x: origin.x, y: origin.y)
         context.scaleBy(x: xAxisScale, y: yAxisScale)
         
-        var offset = CGFloat(-Double(currentSampleIndex) * samplingStep)
+        var offset = CGFloat(-Double(currentSampleIndex) * FourierView.samplingStep)
         while offset < CGFloat(domain.upperBound) {
             context.saveGState()
             context.translateBy(x: offset, y: 0)
             context.addPath(graphPath)
-            offset += CGFloat(period)
+            offset += CGFloat(FourierView.period)
             context.restoreGState()
         }
         context.restoreGState()
@@ -185,23 +184,17 @@ class FourierView : UIView {
     }
     
     private func update(delta: CFTimeInterval) {
-        let samplesPerFrame = Int(floor(unitsPerFrame / samplingStep))
-        currentSampleIndex  = (currentSampleIndex + samplesPerFrame) % samples.count
+        currentSampleIndex  = (currentSampleIndex + 1) % samples.count
         setNeedsDisplay()
     }
     
     private func recalculateSamples() {
-        let domainLength = domain.upperBound - domain.lowerBound
-        let screenWidthForPeriod = Double(graphFrame.width) * period / domainLength
-        let numberOfSamplesForPeriod = Int(ceil(screenWidthForPeriod)) + 1
-        samplingStep = period / Double(numberOfSamplesForPeriod - 1)
-    
         samples.removeAll(keepingCapacity: true)
         
         var currentArgument = 0.0
-        for _ in 0..<numberOfSamplesForPeriod {
+        for _ in 0..<FourierView.numberOfSamplesForPeriod {
             samples.append(calculateFourierSample(currentArgument, coefficients: coefficients))
-            currentArgument += samplingStep
+            currentArgument += FourierView.samplingStep
         }
         
         // Update paths
