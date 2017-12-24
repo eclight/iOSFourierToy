@@ -8,9 +8,7 @@
 
 import UIKit
 
-extension FourierView : OptionsViewControllerDelegate {}
-
-class ViewController: UIViewController {
+class ViewController: UIViewController, OptionsViewControllerDelegate {
     
     // MARK: - IB outlets
     
@@ -18,12 +16,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var optionsViewHiddenConstraint: NSLayoutConstraint!
     @IBOutlet weak var optionsViewVisibleConstraint: NSLayoutConstraint!
     @IBOutlet weak var optionsView: UIView!
+	
+	private var hideOptionsTimer: Timer? = nil
     
     // MARK: - Construction/destruction
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+	
+	// MARK: - OptionsViewControllerDelegate
+	
+	var coefficients: [Double] {
+		get { return fourierView.coefficients}
+		
+		set {
+			fourierView.coefficients = newValue
+			startAutoHideTimer()
+		}
+	}
     
     // MARK: - IB actions
     
@@ -41,14 +52,18 @@ class ViewController: UIViewController {
             optionsViewHiddenConstraint.isActive = false
             optionsViewVisibleConstraint.isActive = true
         }
-        
+		
         UIView.animate(
             withDuration: 0.3,
             animations: { self.view.layoutIfNeeded() },
             completion: { _ in
                 if !needToShow {
                     self.optionsView.isHidden = true
+					self.stopAutoHideTimer()
                 }
+				else {
+					self.startAutoHideTimer()
+				}
             }
         )
     }
@@ -84,7 +99,7 @@ class ViewController: UIViewController {
         }
         
         if identifier == "EmbedOptionsViewSegue" {
-            (segue.destination as? OptionsViewController)?.delegate = fourierView
+            (segue.destination as? OptionsViewController)?.delegate = self
         }
     }
     
@@ -99,5 +114,19 @@ class ViewController: UIViewController {
     private func enterForeground() {
         fourierView.isPaused = false
     }
+	
+	private func startAutoHideTimer() {
+		self.hideOptionsTimer?.invalidate()
+		self.hideOptionsTimer = Timer.scheduledTimer(timeInterval: TimeInterval(3),
+													 target: self,
+													 selector: #selector(ViewController.toggleOptionPanel),
+													 userInfo: nil,
+													 repeats: false)
+	}
+	
+	private func stopAutoHideTimer() {
+		self.hideOptionsTimer?.invalidate()
+		self.hideOptionsTimer = nil
+	}
 }
 
