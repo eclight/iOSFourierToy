@@ -1,11 +1,3 @@
-//
-//  Colors.swift
-//  FourierToy
-//
-//  Created by Oleg on 6/23/17.
-//  Copyright © 2017 eclight. All rights reserved.
-//
-
 import UIKit
 
 class Colors {
