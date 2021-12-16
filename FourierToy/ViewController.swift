@@ -63,10 +63,10 @@ class ViewController: UIViewController, OptionsViewControllerDelegate {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(enterBackground),
-                                               name: .UIApplicationWillResignActive,
+                                               name: UIApplication.willResignActiveNotification,
                                                object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(enterForeground),
-                                               name: .UIApplicationDidBecomeActive,
+                                               name: UIApplication.didBecomeActiveNotification,
                                                object: nil)
     }
 

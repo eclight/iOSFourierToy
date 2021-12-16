@@ -10,7 +10,7 @@ class DisplayLinker: NSObject {
         self.updateHandler = updateHandler
         super.init()
         displayLink = CADisplayLink(target: self, selector: #selector(displayLinkUpdated))
-        displayLink.add(to: RunLoop.main, forMode: .commonModes)
+        displayLink.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
     }
 
     var isPaused: Bool {
