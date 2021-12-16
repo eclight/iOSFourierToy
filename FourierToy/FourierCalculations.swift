@@ -10,9 +10,9 @@ enum PredefinedCoefficients {
         switch self {
         case .zero: return [Double](repeating: 0, count: n)
 
-        case .square: return (1 ... n).map { (($0 % 2 == 0) ? 0 : 1) / Double($0) }
+        case .square: return (1...n).map { (($0 % 2 == 0) ? 0 : 1) / Double($0) }
 
-        case .triangle: return (1 ... n).map {
+        case .triangle: return (1...n).map {
             if $0 % 2 == 1 {
                 return pow(-1, 0.5 * Double($0 - 1)) / Double($0 * $0)
             }
@@ -20,7 +20,7 @@ enum PredefinedCoefficients {
             return 0
         }
 
-        case .sawtooth: return (1 ... n).map { 0.5 / Double($0) }
+        case .sawtooth: return (1...n).map { 0.5 / Double($0) }
         }
     }
 }
@@ -31,7 +31,10 @@ struct Sample {
     let y: [SeriesMember]
 }
 
-typealias SeriesMember = (partialSum: Double, value: Double)
+struct SeriesMember {
+    var partialSum: Double
+    var value: Double
+}
 
 func calculateFourierSample(_ argument: Double, coefficients: [Double]) -> Sample {
     return Sample(argument: argument,
@@ -45,7 +48,7 @@ private func calculateFourierSeries(coefficients: [Double], x: Double, shiftedBy
     for (n, coefficient) in coefficients.enumerated() {
         let value = coefficient * sin(2 * Double.pi * Double(n + 1) * x + shift)
         partialSum += value
-        result.append((partialSum: partialSum, value: value))
+        result.append(SeriesMember(partialSum: partialSum, value: value))
     }
 
     return result
